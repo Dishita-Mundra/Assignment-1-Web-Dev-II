@@ -1,55 +1,43 @@
-const eventForm=document.getElementById("eventForm");
-const eventTitle=document.getElementById("eventTitle");
-const eventDate=document.getElementById("eventDate");
-const eventCategory=document.getElementById("eventCategory");
-const eventDescription=document.getElementById("eventDescription");
-const clearAllBtn=document.getElementById("clearAllBtn");
-const addSampleBtn=document.getElementById("addSampleBtn");
-const eventContainer=document.getElementById("eventContainer");
-const demoContent=document.getElementById("demoContent");
+function addEvent() {
+    const title = document.getElementById('title').value;
+    const date = document.getElementById('date').value;
+    const category = document.getElementById('category').value;
+    const description = document.getElementById('description').value;
 
-
-const sampleEvents = 
-[
-{
-    title:"Web dev",
-    date:"4-5-2026",
-    category:"Workshop",
-    description:"usd ius sijjnsf j snen s"
-},
-{
-    title:"Web dev2",
-    date:"4-6-2026",
-    category:"conference",
-    description:"bds iudsfnjn s sijjnsf j snen s"
-}
-]
-
-function createEventCard(eventData){
-   const card=document.createElement("div");
-
-   card.innerHTML=`
-   <button class="delete-btn">X</button>
-   <h3>${eventData.title}</h3>
-   <div>${eventData.date}</div>
-   <span>${eventData.category}</span>
-   <p>${eventData.description}</p>
-   `
-
-   return card;
-}
-function addEvent(eventData){
-    const emptyState=document.querySelector(".empty-state");
-    emptyState.remove();
-    eventContainer.appendChild(createEventCard(eventData));
-}
-eventForm.addEventListener("submit",(event)=>{
-    event.preventDefault();
-    const eventData={
-        title:eventTitle.value,
-        date:eventDate.value,
-        category:eventCategory.value,
-        description:eventDescription.value
+    if (!title || !date) {
+        alert("Please enter title and date!");
+        return;
     }
-    addEvent(eventData);
-})
+
+    const list = document.getElementById('eventList');
+
+    
+    const li = document.createElement('li');
+    li.className = 'event-item';
+
+  
+    li.innerHTML = `
+        <button class="delete-btn" onclick="this.parentElement.remove()">✖</button>
+        <h3>${title}</h3>
+        <div>
+            <span class="badge-date">📅 ${date}</span>
+            <span class="badge-cat">${category}</span>
+        </div>
+        <p class="event-desc">${description}</p>
+    `;
+
+    list.appendChild(li);
+
+   
+    document.getElementById('title').value = '';
+    document.getElementById('description').value = '';
+}
+
+
+function addSample() {
+    document.getElementById('title').value = "JavaScript Workshop";
+    document.getElementById('date').value = "2026-02-20";
+    document.getElementById('category').value = "Workshop";
+    document.getElementById('description').value = "Hands-on JS learning session.";
+    addEvent();
+}
