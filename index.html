@@ -1,72 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+  <meta charset="UTF-8">
+  <title>Smart Event Dashboard</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- <h1>Smart Event Dashboard</h1>
-    <h2>Add New Event</h2>
-    <form id="eventForm">
-        <input type="text" id="eventName">
-        <input type="date">
-        <select>
-            <option>Default</option>
-            <option>Sample</option>
-            <option>Sample</option>
-            <option>Sample</option>
-        </select>
-        <textarea></textarea>
-        <button type="submit">Add Event</button>
-    </form> -->
+  <h1 class="title">🎯 Smart Event Dashboard</h1>
 
-        <h1>🎯 Smart Event Dashboard</h1>
+  <div class="container">
 
     <!-- Add Event Form -->
-    <h2>Add New Event</h2>
-    <form id="eventForm">
-        <label>Event Title:<input type="text" id="eventTitle" required></label>
-        <br><br>
-        <label>Event Date:<input type="date" id="eventDate" required></label>
-        <br><br>
-        <label>
-            Category:
-            <select id="eventCategory" required>
-                <option value="Conference">Conference</option>
-                <option value="Workshop">Workshop</option>
-                <option value="Meetup">Meetup</option>
-                <option value="Webinar">Webinar</option>
-                <option value="Social">Social</option>
-            </select>
-        </label>
-        <br><br>
-        <label>
-            Description:
-            <textarea id="eventDescription" required></textarea>
-        </label>
-        <br><br>
-        <button type="submit">Add Event</button>
-    </form>
+    <div class="card">
+      <h2>Add New Event</h2>
 
-    <hr>
-    <!-- Events Section -->
-    <h2>My Events</h2>
+      <input type="text" id="title" placeholder="Event Title">
+      <input type="date" id="date">
 
-    <button id="clearAllBtn">Clear All Events</button>
-    <button id="addSampleBtn">Add Sample Events</button>
+      <select id="category">
+        <option>Conference</option>
+        <option>Meeting</option>
+        <option>Workshop</option>
+      </select>
 
-    <div id="eventContainer">
-        <div class="empty-state">No events yet. Add your first event!</div>
+      <textarea id="description" placeholder="Description"></textarea>
+
+      <button onclick="addEvent()">Add Event</button>
     </div>
-    <hr>
-    <!-- DOM Demo -->
+
+    <!-- Event List -->
+    <div class="card"> 
+      <h2>My Events</h2>
+
+      <div class="btn-group">
+        <button onclick="clearEvents()">Clear All</button>
+        <button onclick="addSample()">Add Sample</button>
+      </div>
+
+      <ul id="eventList"></ul>
+    </div>
+
+  </div>
+
+  <!-- DOM Demo -->
+  <div class="demo">
     <h2>DOM Manipulation Demo</h2>
+    <p id="demoText"><strong>Bold Text</strong> with spaces</p>
+    <button onclick="showInnerHTML()">innerHTML</button>
+    <button onclick="showTextContent()">textContent</button>
+  </div>
 
-    <div id="demoContent">
-        Press any key to see the difference!
-    </div>
+  <script src="script.js"></script>
 </body>
 </html>
