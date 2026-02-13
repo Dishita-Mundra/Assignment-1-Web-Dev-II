@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -6,11 +5,11 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <h1 class="title">🎯 Smart Event Dashboard</h1>
 
   <div class="container">
 
-    <!-- Add Event Form -->
     <div class="card">
       <h2>Add New Event</h2>
 
@@ -21,33 +20,37 @@
         <option>Conference</option>
         <option>Meeting</option>
         <option>Workshop</option>
+        <option>Social</option>
       </select>
 
       <textarea id="description" placeholder="Description"></textarea>
 
-      <button onclick="addEvent()">Add Event</button>
+      <button id="addBtn">Add Event</button>
     </div>
 
-    <!-- Event List -->
-    <div class="card"> 
+    <div class="card">
       <h2>My Events</h2>
 
       <div class="btn-group">
-        <button onclick="clearEvents()">Clear All</button>
-        <button onclick="addSample()">Add Sample</button>
+        <button id="clearBtn">Clear All Events</button>
+        <button id="sampleBtn">Add Sample Events</button>
       </div>
 
-      <ul id="eventList"></ul>
+      <div id="eventList"></div>
     </div>
 
   </div>
 
-  <!-- DOM Demo -->
   <div class="demo">
     <h2>DOM Manipulation Demo</h2>
+
     <p id="demoText"><strong>Bold Text</strong> with spaces</p>
-    <button onclick="showInnerHTML()">innerHTML</button>
-    <button onclick="showTextContent()">textContent</button>
+
+    <div class="btn-group">
+      <button id="htmlBtn">innerHTML</button>
+      <button id="textBtn">textContent</button>
+      <button id="boldBtn">Toggle Bold</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
